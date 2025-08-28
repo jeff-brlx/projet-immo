@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Héritage & Domaines - Design System Luxueux */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Nouvelle palette personnalisée */
+    --background: 205 79% 94%;
+    --foreground: 0 0% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
+
+    /* Bleu vibrant primaire #2962FF */
+    --primary: 227 100% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 227 100% 68%;
+
+    /* Tons neutres avec la nouvelle palette */
+    --secondary: 205 79% 90%;
+    --secondary-foreground: 0 0% 13%;
+
+    --muted: 205 79% 92%;
+    --muted-foreground: 0 0% 40%;
+
+    /* Accent vert turquoise #00C896 */
+    --accent: 165 100% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 205 79% 85%;
+    --input: 205 79% 88%;
+    --ring: 227 100% 58%;
+
+    --radius: 0.75rem;
+
+    /* Gradients avec nouvelle palette */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 13% / 0.95), hsl(0 0% 20% / 0.85));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(205 79% 96%));
+
+    /* Ombres avec nouvelle palette */
+    --shadow-luxury: 0 25px 50px -12px hsl(var(--primary) / 0.3);
+    --shadow-card: 0 10px 30px -5px hsl(0 0% 13% / 0.08);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+
+    /* Animations */
+    --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Mode sombre avec nouvelle palette */
+    --background: 0 0% 8%;
+    --foreground: 205 79% 94%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 205 79% 94%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 205 79% 94%;
+
+    --primary: 227 100% 68%;
+    --primary-foreground: 0 0% 8%;
+    --primary-glow: 227 100% 78%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 205 79% 85%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 165 100% 45%;
+    --accent-foreground: 0 0% 8%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 12%;
+    --ring: 227 100% 68%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 8% / 0.95), hsl(0 0% 12% / 0.9));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 10%), hsl(0 0% 12%));
+    --shadow-luxury: 0 25px 50px -12px hsl(var(--primary) / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  .luxury-gradient {
+    background: var(--gradient-primary);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .luxury-shadow {
+    box-shadow: var(--shadow-luxury);
+  }
+
+  .card-shadow {
+    box-shadow: var(--shadow-card);
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .transition-luxury {
+    transition: var(--transition-luxury);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .btn-luxury {
+    @apply bg-primary text-primary-foreground px-8 py-4 rounded-lg font-medium transition-luxury hover:scale-105 luxury-shadow;
+  }
+
+  .btn-outline-luxury {
+    @apply border-2 border-primary text-primary px-8 py-4 rounded-lg font-medium transition-luxury hover:bg-primary hover:text-primary-foreground;
+  }
+
+  .text-luxury {
+    @apply bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent;
+  }
+}
